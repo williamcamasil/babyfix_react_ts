@@ -1,8 +1,16 @@
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import { Container } from './styles';
+
 const RegisterListMaintenance = () => {
   return (
-    <div>
-      <h1>Vehicles - RegisterListMaintenance</h1>
-    </div>
+    <>
+      <Header />
+      <Container>
+        <h1>Vehicles - RegisterListMaintenance</h1>
+      </Container>
+      <Footer />
+    </>
   );
 };
 
