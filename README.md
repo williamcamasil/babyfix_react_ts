@@ -26,3 +26,12 @@ yarn add --dev eslint-plugin-prettier eslint-config-prettier
 yarn add react-router-dom@5.2.0 @types/react-router-dom
 ```
 
+
+
+##### Styled Components
+
+```
+yarn add styled-components
+yarn add -D @types/styled-components
+```
+
