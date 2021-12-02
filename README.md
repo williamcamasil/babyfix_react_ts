@@ -20,3 +20,9 @@ echo {}> .prettierrc.json
 yarn add --dev eslint-plugin-prettier eslint-config-prettier
 ```
 
+##### React router dom
+
+```
+yarn add react-router-dom@5.2.0 @types/react-router-dom
+```
+
