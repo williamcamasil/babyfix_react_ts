@@ -2,20 +2,20 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   background-color: #232528;
-  padding: 0 40px;
+  width: 100%;
 `;
 
 const HeaderComponent = styled.div`
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 90%;
   height: 120px;
+  margin: auto;
 `;
 
 const ImageLogo = styled.div`
   display: flex;
-  width: 150px;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 
   img {
