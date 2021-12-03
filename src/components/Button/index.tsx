@@ -2,13 +2,14 @@ import { ButtonComponent } from './styles';
 
 type button = {
   text: string;
+  click: Function;
 };
 
-const Button = ({ text }: button) => {
+const Button = ({ text, click }: button) => {
   //TODO: Actions should happen here
   return (
     <>
-      <ButtonComponent>{text}</ButtonComponent>
+      <ButtonComponent onClick={() => click()}>{text}</ButtonComponent>
     </>
   );
 };

@@ -20,7 +20,7 @@ echo {}> .prettierrc.json
 yarn add --dev eslint-plugin-prettier eslint-config-prettier
 ```
 
-##### React router dom
+##### React Router Dom
 
 ```
 yarn add react-router-dom@5.2.0 @types/react-router-dom
@@ -33,5 +33,13 @@ yarn add react-router-dom@5.2.0 @types/react-router-dom
 ```
 yarn add styled-components
 yarn add -D @types/styled-components
+```
+
+
+
+##### [React Hook Form](https://react-hook-form.com/get-started)
+
+```
+yarn add react-hook-form
 ```
 

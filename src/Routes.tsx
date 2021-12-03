@@ -1,8 +1,8 @@
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 import Home from './screens/Home';
-import RegisterListVehicles from './screens/RegisterListVehicles';
-import RegisterListMaintenance from './screens/RegisterListMaintenance';
+import RegisterListVehicles from './screens/Vehicles';
+import RegisterListMaintenance from './screens/Maintenance';
 
 const Routes = () => {
   return (
@@ -19,6 +19,10 @@ const Routes = () => {
         <Route path="/manutencao" exact>
           <RegisterListMaintenance />
         </Route>
+
+        {/* <Route path="/manutencao/lista" exact>
+          <RegisterListMaintenance />
+        </Route> */}
       </Switch>
     </BrowserRouter>
   );
