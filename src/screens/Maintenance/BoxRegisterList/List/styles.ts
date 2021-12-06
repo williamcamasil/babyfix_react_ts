@@ -16,14 +16,21 @@ const Form = styled.div`
   color: #fff;
 
   table {
-    background-color: lightgreen;
-    width: 90%;
-    margin: auto;
-    margin-top: 40px;
-
-    tr {
-      /* background-color: lightskyblue; */
-    }
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+  }
+  table thead {
+    background: #000;
+    font-weight: bold;
+    color: #fff;
+  }
+  table tbody tr:nth-child(2n) {
+    background: #c0121a;
+  }
+  table th,
+  table td {
+    padding: 7px 0;
   }
 `;
 
