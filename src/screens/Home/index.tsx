@@ -1,6 +1,6 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { Container, Banner, About, Benefits } from './styles';
+import { Container, Banner, BoxInformation } from './styles';
 
 const Home = () => {
   return (
@@ -10,7 +10,7 @@ const Home = () => {
         <Banner>
           <h1>Seus veículo em boas mãos</h1>
         </Banner>
-        <About>
+        <BoxInformation backgroundColor="#fff">
           <h2>Deveres que temos para com o nosso veículo</h2>
           <p>
             Todos nós temos um sonho que muitas vezes é adquirir um veículo,
@@ -23,8 +23,8 @@ const Home = () => {
             temos como objetivo facilitar sua vida e cuidar daquilo que te move
             e te proporciona muita felicidade.
           </p>
-        </About>
-        <Benefits>
+        </BoxInformation>
+        <BoxInformation backgroundColor="#EEEEEE">
           <h2>Benefícios</h2>
           <p>
             Todos nós temos um sonho que muitas vezes é adquirir um veículo,
@@ -37,7 +37,7 @@ const Home = () => {
             temos como objetivo facilitar sua vida e cuidar daquilo que te move
             e te proporciona muita felicidade.
           </p>
-        </Benefits>
+        </BoxInformation>
       </Container>
       <Footer />
     </>

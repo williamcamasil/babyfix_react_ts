@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import img from '../../assets/images/banner.jpg';
 
+interface BoxInformationProps {
+  backgroundColor: string;
+}
+
 const Container = styled.div`
   /* height: calc(100vh - 240px); */
 `;
@@ -14,15 +18,21 @@ const Banner = styled.div`
     color: #fff;
   }
 `;
-const About = styled.div`
+const BoxInformation = styled.div<BoxInformationProps>`
   padding: 50px;
-  height: 300px;
-  background-color: lightblue;
-`;
-const Benefits = styled.div`
-  padding: 50px;
-  height: 500px;
-  background-color: lightgray;
+  background-color: ${props => props.backgroundColor};
+
+  h2 {
+    color: #c0121a;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 30px;
+    font-weight: 300;
+  }
+
+  p {
+    font-family: Ubuntu, sans-serif;
+  }
 `;
 
-export { Container, Banner, About, Benefits };
+export { Container, Banner, BoxInformation };
