@@ -1,4 +1,4 @@
-import { FormBox, Form, InputStyle } from './styles';
+import { FormBox, Form, InputStyle, InputAddress } from './styles';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Maintence } from '../../../../types/maintence';
 
@@ -15,6 +15,16 @@ const Register = () => {
     <FormBox>
       <Form>
         <form onSubmit={handleSubmit(onSubmit)}>
+          <InputStyle>
+            <label>Tipo de Veículo</label>
+            <input
+              type="text"
+              placeholder="Carro"
+              {...(register('actualKm'), { required: true })}
+            />
+            {errors.actualKm && <span>Campo obrigatório</span>}
+          </InputStyle>
+
           <InputStyle>
             <label>Km atual</label>
             <input
@@ -85,15 +95,27 @@ const Register = () => {
             {errors.spent && <span>Campo obrigatório</span>}
           </InputStyle>
 
-          <InputStyle>
-            <label>Localização</label>
-            <input
-              type="text"
-              placeholder="Insira o endereço"
-              {...register('location', { required: true })}
-            />
-            {errors.location && <span>Campo obrigatório</span>}
-          </InputStyle>
+          <InputAddress>
+            <InputStyle>
+              <label>Localização</label>
+              <input
+                type="text"
+                placeholder="Insira o endereço"
+                {...register('location', { required: true })}
+              />
+              {errors.location && <span>Campo obrigatório</span>}
+            </InputStyle>
+
+            <InputStyle>
+              <label>N° local</label>
+              <input
+                type="text"
+                placeholder="N° local"
+                {...register('location', { required: true })}
+              />
+              {errors.location && <span>Campo obrigatório</span>}
+            </InputStyle>
+          </InputAddress>
 
           <InputStyle>
             <label>Observação</label>

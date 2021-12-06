@@ -13,6 +13,18 @@ const Form = styled.div`
   width: 100%;
   background-color: #333333;
   border-radius: 10px;
+  color: #fff;
+
+  table {
+    background-color: lightgreen;
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+
+    tr {
+      /* background-color: lightskyblue; */
+    }
+  }
 `;
 
 export { FormBox, Form };

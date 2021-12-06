@@ -8,13 +8,13 @@ const BoxRegisterList = () => {
       {/* <h1>Teste</h1> */}
       {/* <Register /> */}
       <Switch>
+        {/* <Route path="/manutencao/registrar"> */}
         <Route path="/manutencao">
           <Register />
-          {/* <h1>OLA MUNDO</h1> */}
         </Route>
         <Route path="/manutencao/lista">
-          {/* <List /> */}
-          <h1>OLA MUNDO DE LISTA</h1>
+          {/* <Route path="/manutencao"> */}
+          <List />
         </Route>
       </Switch>
     </>

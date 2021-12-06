@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  height: calc(100vh - 310px);
+  //height: calc(100vh - 310px);
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 60px 0;
 `;
 
 const Maintence = styled.div`

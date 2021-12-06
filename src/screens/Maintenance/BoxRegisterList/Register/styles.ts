@@ -38,4 +38,11 @@ const InputStyle = styled.div`
   }
 `;
 
-export { FormBox, Form, InputStyle };
+const InputAddress = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 44%;
+  margin: auto;
+`;
+
+export { FormBox, Form, InputStyle, InputAddress };
