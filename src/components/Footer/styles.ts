@@ -13,6 +13,7 @@ const FooterComponent = styled.div`
   justify-content: space-around;
   height: 190px;
   color: #fff;
+  max-width: 1200px;
 
   .social-images {
     margin-top: 50px;

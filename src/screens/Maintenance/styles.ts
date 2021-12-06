@@ -11,6 +11,8 @@ const Container = styled.div`
 
 const Maintence = styled.div`
   width: 90%;
+  max-width: 1200px;
+  margin: auto;
   h1 {
     font-weight: 500;
     text-align: start;

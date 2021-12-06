@@ -11,6 +11,7 @@ const HeaderComponent = styled.div`
   width: 90%;
   height: 120px;
   margin: auto;
+  max-width: 1200px;
 `;
 
 const ImageLogo = styled.div`
