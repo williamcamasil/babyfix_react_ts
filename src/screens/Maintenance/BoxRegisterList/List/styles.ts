@@ -14,20 +14,24 @@ const Form = styled.div`
   background-color: #333333;
   border-radius: 10px;
   color: #fff;
+  overflow: auto;
 
   table {
-    width: 100%;
-    text-align: center;
-    margin: 5px 0;
+    width: 95%;
+    margin: auto;
+    margin: 20px;
   }
   table thead {
     background: #000;
     font-weight: bold;
     color: #fff;
   }
-  table tbody tr:nth-child(2n) {
-    background: #c0121a;
+
+  table .botyTable {
+    background: #fff;
+    color: #000;
   }
+
   table th,
   table td {
     padding: 7px 0;

@@ -1,6 +1,14 @@
 import { FormBox, Form } from './styles';
+import { Maintence } from '../../../../types/maintence';
+import vehiclesMock from '../../../../Mock/vehicles.json';
+import { useEffect, useState } from 'react';
 
 const List = () => {
+  const [vehicles, setVehicles] = useState<Maintence[]>();
+
+  useEffect(() => {
+    setVehicles(vehiclesMock.veiculos);
+  }, []);
   return (
     <FormBox>
       <Form>
@@ -21,34 +29,25 @@ const List = () => {
             </tr>
           </thead>
 
-          <tbody>
-            <tr>
-              <td>Carro</td>
-              <td>1253</td>
-              <td>Troca de óleo</td>
-              <td>06/12/2021 às 15:33</td>
-              <td>Troca de óleo</td>
-              <td>11253</td>
-              <td>105,60</td>
-              <td>Gustavo Santos</td>
-              <td>05569150</td>
-              <td>539</td>
-              <td>Foi satisfatório</td>
-            </tr>
-            <tr>
-              <td>Carro</td>
-              <td>Centro comercial Moctezuma</td>
-              <td>Francisco Chang</td>
-              <td>Mexico</td>
-              <td>Mexico 1</td>
-              <td>Mexico 2</td>
-              <td>Mexico 3</td>
-              <td>Mexico 4</td>
-              <td>Mexico 5</td>
-              <td>Mexico 5</td>
-              <td>Mexico 6</td>
-            </tr>
-          </tbody>
+          {vehicles?.map(vehicle => {
+            return (
+              <tbody key={vehicle.id}>
+                <tr className="botyTable">
+                  <td>{vehicle.type}</td>
+                  <td>{vehicle.actualKm}</td>
+                  <td>{vehicle.maintanceRequest}</td>
+                  <td>{vehicle.date}</td>
+                  <td>{vehicle.maintanceDone}</td>
+                  <td>{vehicle.nextKmNeed}</td>
+                  <td>{vehicle.spent}</td>
+                  <td>{vehicle.responsable}</td>
+                  <td>{vehicle.location}</td>
+                  <td>{vehicle.numberLocation}</td>
+                  <td>{vehicle.note}</td>
+                </tr>
+              </tbody>
+            );
+          })}
         </table>
       </Form>
     </FormBox>
