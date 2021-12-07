@@ -9,7 +9,6 @@ const FormBox = styled.div`
 `;
 
 const Form = styled.div`
-  /* height: 500px; */
   width: 100%;
   background-color: #333333;
   border-radius: 10px;

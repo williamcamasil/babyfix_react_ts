@@ -11,13 +11,13 @@ const Routes = () => {
           <Home />
         </Route>
 
-        <Route path="/manutencao" exact>
+        <Route path="/manutencao/registrar" exact>
           <RegisterListMaintenance />
         </Route>
 
-        {/* <Route path="/manutencao/lista" exact>
+        <Route path="/manutencao/lista" exact>
           <RegisterListMaintenance />
-        </Route> */}
+        </Route>
       </Switch>
     </BrowserRouter>
   );

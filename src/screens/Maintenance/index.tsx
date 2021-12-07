@@ -1,11 +1,9 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
-// import Register from './Register';
-// import List from './List';
 import { Container, Maintence, Buttons } from './styles';
 import BoxRegisterList from './BoxRegisterList';
-import { NavLink } from 'react-router-dom';
+import LinkButton from '../../components/LinkButton';
 
 const RegisterListMaintenance = () => {
   // const { path, url } = useRouteMatch();
@@ -15,14 +13,8 @@ const RegisterListMaintenance = () => {
       <Container>
         <Maintence>
           <h1>Manutenção para o veículo [NOME]</h1>
-          {/* <Register /> */}
-          {/* <List /> */}
 
           <BoxRegisterList />
-
-          {/* TODO: corrigir o nesting - https://v5.reactrouter.com/web/example/nesting */}
-          {/* <NavLink to="/manutencao">Registrar</NavLink>
-          <NavLink to="/manutencao/lista">Lista</NavLink> */}
 
           <Buttons>
             <Button
@@ -43,12 +35,9 @@ const RegisterListMaintenance = () => {
                 console.log('teste');
               }}
             />
-            <Button
-              text={'Manutenções'}
-              click={() => {
-                console.log('teste');
-              }}
-            />
+
+            <LinkButton to="/manutencao/registrar" text="Registrar" />
+            <LinkButton to="/manutencao/lista" text="Lista" />
           </Buttons>
         </Maintence>
       </Container>

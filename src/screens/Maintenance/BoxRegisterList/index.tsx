@@ -13,7 +13,7 @@ const BoxRegisterList = () => {
           <Register />
         </Route>
         {/* <Route path="/manutencao/lista"> */}
-        <Route path="/manutencao">
+        <Route path="/manutencao/lista">
           <List />
         </Route>
       </Switch>
