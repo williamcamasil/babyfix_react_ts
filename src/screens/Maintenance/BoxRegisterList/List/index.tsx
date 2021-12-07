@@ -1,14 +1,21 @@
-import { FormBox, Form } from './styles';
+import { FormBox, Form, Buttons } from './styles';
 import { Maintence } from '../../../../types/maintence';
 import vehiclesMock from '../../../../Mock/vehicles.json';
 import { useEffect, useState } from 'react';
+import Button from '../../../../components/Button';
+import LinkButton from '../../../../components/LinkButton';
 
 const List = () => {
-  const [vehicles, setVehicles] = useState<Maintence[]>();
+  const [vehicles, setVehicles] = useState<Maintence[]>([]);
 
   useEffect(() => {
     setVehicles(vehiclesMock.veiculos);
   }, []);
+
+  const handleDeleteItem = () => {
+    vehiclesMock.veiculos.pop();
+  };
+
   return (
     <FormBox>
       <Form>
@@ -33,7 +40,7 @@ const List = () => {
             return (
               <tbody key={vehicle.id}>
                 <tr className="botyTable">
-                  <td>{vehicle.type}</td>
+                  <td>{vehicle.typeVehicle}</td>
                   <td>{vehicle.actualKm}</td>
                   <td>{vehicle.maintanceRequest}</td>
                   <td>{vehicle.date}</td>
@@ -50,6 +57,17 @@ const List = () => {
           })}
         </table>
       </Form>
+
+      <Buttons>
+        <Button
+          text={'Excluir'}
+          click={() => {
+            handleDeleteItem();
+            console.log('Excluido');
+          }}
+        />
+        <LinkButton to="/manutencao/registrar" text="Registrar" />
+      </Buttons>
     </FormBox>
   );
 };

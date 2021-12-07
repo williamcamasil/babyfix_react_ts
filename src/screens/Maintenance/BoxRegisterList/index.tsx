@@ -5,14 +5,10 @@ import Register from './Register';
 const BoxRegisterList = () => {
   return (
     <>
-      {/* <h1>Teste</h1> */}
-      {/* <Register /> */}
       <Switch>
         <Route path="/manutencao/registrar">
-          {/* <Route path="/manutencao"> */}
           <Register />
         </Route>
-        {/* <Route path="/manutencao/lista"> */}
         <Route path="/manutencao/lista">
           <List />
         </Route>

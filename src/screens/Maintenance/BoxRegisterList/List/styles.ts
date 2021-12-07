@@ -38,4 +38,12 @@ const Form = styled.div`
   }
 `;
 
-export { FormBox, Form };
+const Buttons = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 700px;
+  margin: auto;
+  margin-top: 40px;
+`;
+
+export { FormBox, Form, Buttons };

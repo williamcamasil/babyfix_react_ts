@@ -1,28 +1,48 @@
-import { FormBox, Form, InputStyle, InputAddress } from './styles';
+import { FormBox, Form, InputStyle, InputAddress, Buttons } from './styles';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Maintence } from '../../../../types/maintence';
+import Button from '../../../../components/Button';
+import LinkButton from '../../../../components/LinkButton';
+import vehiclesMock from '../../../../Mock/vehicles.json';
 
 const Register = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Maintence>();
-  const onSubmit: SubmitHandler<Maintence> = data => console.log(data);
+  const onSubmit: SubmitHandler<Maintence> = data => {
+    const newItem = {
+      //TODO: insert ramdom id and message confirmation saving
+      id: 8,
+      typeVehicle: data.typeVehicle,
+      actualKm: data.actualKm,
+      maintanceRequest: data.maintanceRequest,
+      date: data.date,
+      maintanceDone: data.maintanceDone,
+      nextKmNeed: data.nextKmNeed,
+      spent: data.spent,
+      responsable: data.responsable,
+      location: data.location,
+      numberLocation: data.numberLocation,
+      note: data.note,
+    };
+
+    vehiclesMock.veiculos.push(newItem);
+  };
 
   return (
     <FormBox>
-      <Form>
-        <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Form>
           <InputStyle>
             <label>Tipo de Veículo</label>
             <input
               type="text"
               placeholder="Carro"
-              {...(register('actualKm'), { required: true })}
+              {...register('typeVehicle', { required: true })}
             />
-            {errors.actualKm && <span>Campo obrigatório</span>}
+            {errors.typeVehicle && <span>Campo obrigatório</span>}
           </InputStyle>
 
           <InputStyle>
@@ -30,7 +50,7 @@ const Register = () => {
             <input
               type="number"
               placeholder="1000"
-              {...(register('actualKm'), { required: true })}
+              {...register('actualKm', { required: true })}
             />
             {errors.actualKm && <span>Campo obrigatório</span>}
           </InputStyle>
@@ -90,9 +110,9 @@ const Register = () => {
             <input
               type="text"
               placeholder="Nome do mecânico"
-              {...register('spent', { required: true })}
+              {...register('responsable', { required: true })}
             />
-            {errors.spent && <span>Campo obrigatório</span>}
+            {errors.responsable && <span>Campo obrigatório</span>}
           </InputStyle>
 
           <InputAddress>
@@ -111,9 +131,9 @@ const Register = () => {
               <input
                 type="text"
                 placeholder="N° local"
-                {...register('location', { required: true })}
+                {...register('numberLocation', { required: true })}
               />
-              {errors.location && <span>Campo obrigatório</span>}
+              {errors.numberLocation && <span>Campo obrigatório</span>}
             </InputStyle>
           </InputAddress>
 
@@ -126,8 +146,24 @@ const Register = () => {
             />
             {errors.note && <span>Campo obrigatório</span>}
           </InputStyle>
-        </form>
-      </Form>
+        </Form>
+
+        <Buttons>
+          <Button
+            text={'Limpar'}
+            click={() => {
+              console.log('Limpar');
+            }}
+          />
+          <Button
+            text={'Salvar'}
+            click={() => {
+              handleSubmit(onSubmit);
+            }}
+          />
+          <LinkButton to="/manutencao/lista" text="Lista" />
+        </Buttons>
+      </form>
     </FormBox>
   );
 };
