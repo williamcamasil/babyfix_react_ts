@@ -4,16 +4,24 @@ import vehiclesMock from '../../../../Mock/vehicles.json';
 import { useEffect, useState } from 'react';
 import Button from '../../../../components/Button';
 import LinkButton from '../../../../components/LinkButton';
+import { toast } from 'react-toastify';
 
 const List = () => {
   const [vehicles, setVehicles] = useState<Maintence[]>([]);
 
   useEffect(() => {
     setVehicles(vehiclesMock.veiculos);
+    console.log('Setting vehicles');
   }, []);
 
-  const handleDeleteItem = () => {
-    vehiclesMock.veiculos.pop();
+  const handleDeleteItem = (id: number) => {
+    console.log('VEHICLES_1 ', vehiclesMock.veiculos);
+    vehiclesMock.veiculos.splice(id, 1);
+    console.log('VEHICLES_2 ', vehiclesMock.veiculos);
+    // console.log('VEHICLES', vehicles);
+    // vehicles.splice(id, 1);
+    // console.log('VEHICLES', vehicles);
+    toast(`Item de id ${id} deletado com sucesso`);
   };
 
   return (
@@ -33,10 +41,12 @@ const List = () => {
               <th>Localização</th>
               <th>N° local</th>
               <th>Observação</th>
+              <th>Exluir?</th>
             </tr>
           </thead>
 
           {vehicles?.map(vehicle => {
+            console.log('Creating Table');
             return (
               <tbody key={vehicle.id}>
                 <tr className="botyTable">
@@ -51,6 +61,15 @@ const List = () => {
                   <td>{vehicle.location}</td>
                   <td>{vehicle.numberLocation}</td>
                   <td>{vehicle.note}</td>
+
+                  <td>
+                    <Button
+                      text={'Excluir'}
+                      click={() => {
+                        handleDeleteItem(vehicle.id);
+                      }}
+                    />{' '}
+                  </td>
                 </tr>
               </tbody>
             );
@@ -59,13 +78,13 @@ const List = () => {
       </Form>
 
       <Buttons>
-        <Button
+        {/* <Button
           text={'Excluir'}
           click={() => {
-            handleDeleteItem();
+            // handleDeleteItem();
             console.log('Excluido');
           }}
-        />
+        /> */}
         <LinkButton to="/manutencao/registrar" text="Registrar" />
       </Buttons>
     </FormBox>

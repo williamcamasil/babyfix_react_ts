@@ -3,7 +3,7 @@ export type Maintence = {
   typeVehicle: string;
   actualKm: number;
   maintanceRequest: string;
-  date: string; //data e hora
+  date: string;
   maintanceDone: string;
   nextKmNeed: number;
   spent: number;

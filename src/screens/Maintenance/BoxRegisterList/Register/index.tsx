@@ -16,8 +16,7 @@ const Register = () => {
   } = useForm<Maintence>();
   const onSubmit: SubmitHandler<Maintence> = data => {
     const newItem = {
-      //TODO: insert ramdom id and message confirmation saving
-      id: 8,
+      id: Math.random(),
       typeVehicle: data.typeVehicle,
       actualKm: data.actualKm,
       maintanceRequest: data.maintanceRequest,
@@ -72,8 +71,8 @@ const Register = () => {
           <InputStyle>
             <label>Data e hora</label>
             <input
-              type="text"
-              placeholder="26/10/2021 às 11:00"
+              type="date"
+              placeholder="26/10/2021"
               {...register('date', { required: true })}
             />
             {errors.date && <span>Campo obrigatório</span>}
