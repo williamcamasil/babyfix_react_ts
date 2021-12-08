@@ -52,4 +52,8 @@ const Buttons = styled.div`
   margin-top: 40px;
 `;
 
-export { FormBox, Form, InputStyle, InputAddress, Buttons };
+const AddressBox = styled.div`
+  color: #fff;
+`;
+
+export { FormBox, Form, InputStyle, InputAddress, Buttons, AddressBox };

@@ -1,14 +1,27 @@
-import { FormBox, Form, InputStyle, InputAddress, Buttons } from './styles';
+import {
+  FormBox,
+  Form,
+  InputStyle,
+  InputAddress,
+  Buttons,
+  AddressBox,
+} from './styles';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Maintence } from '../../../../types/maintence';
 import Button from '../../../../components/Button';
 import LinkButton from '../../../../components/LinkButton';
 import vehiclesMock from '../../../../Mock/vehicles.json';
+import { Address } from '../../../../types/address';
+
+import axios from 'axios';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
 
 const Register = () => {
+  const [address, setAddress] = useState<Address>();
+
   const {
     register,
     handleSubmit,
@@ -32,6 +45,18 @@ const Register = () => {
 
     vehiclesMock.veiculos.push(newItem);
     toast('Item salvo com sucesso!');
+  };
+
+  const requestCep = (cep: string) => {
+    axios
+      .get(`https://viacep.com.br/ws/${cep}/json/`)
+      .then(res => {
+        console.log(res.data);
+        setAddress(res.data);
+      })
+      .catch(err => {
+        console.log('error: ', err);
+      });
   };
 
   return (
@@ -126,8 +151,9 @@ const Register = () => {
               <label>Localização</label>
               <input
                 type="text"
-                placeholder="Insira o endereço"
+                placeholder="Insira seu cep"
                 {...register('location', { required: true })}
+                onBlur={e => requestCep(e.target.value)}
               />
               {errors.location && <span>Campo obrigatório</span>}
             </InputStyle>
@@ -142,6 +168,18 @@ const Register = () => {
               {errors.numberLocation && <span>Campo obrigatório</span>}
             </InputStyle>
           </InputAddress>
+
+          <AddressBox>
+            {address && (
+              <div>
+                <p>
+                  {address?.localidade} - {address?.uf}
+                </p>
+                <p>{address?.logradouro}</p>
+                <p>{address?.bairro}</p>
+              </div>
+            )}
+          </AddressBox>
 
           <InputStyle>
             <label>Observação</label>
@@ -158,7 +196,8 @@ const Register = () => {
           <Button
             text={'Limpar'}
             click={() => {
-              console.log('Limpar');
+              console.log('Buscando endereco');
+              // requestCep();
             }}
           />
           <Button

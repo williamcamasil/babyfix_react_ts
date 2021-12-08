@@ -43,9 +43,15 @@ yarn add -D @types/styled-components
 yarn add react-hook-form
 ```
 
-React Toastify
+##### [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
 
 ````
 yarn add react-toastify
 ````
+
+##### [React Axios]()
+
+```
+yarn add axios
+```
 
