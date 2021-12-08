@@ -5,6 +5,9 @@ import Button from '../../../../components/Button';
 import LinkButton from '../../../../components/LinkButton';
 import vehiclesMock from '../../../../Mock/vehicles.json';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Register = () => {
   const {
     register,
@@ -29,6 +32,7 @@ const Register = () => {
     };
 
     vehiclesMock.veiculos.push(newItem);
+    toast('Item salvo com sucesso!');
   };
 
   return (
