@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Button from '../../../../components/Button';
 import LinkButton from '../../../../components/LinkButton';
 import { toast } from 'react-toastify';
+import { formatPrice } from '../../../../util/formatters';
 
 const List = () => {
   const [vehicles, setVehicles] = useState<Maintence[]>([]);
@@ -56,7 +57,7 @@ const List = () => {
                   <td>{vehicle.date}</td>
                   <td>{vehicle.maintanceDone}</td>
                   <td>{vehicle.nextKmNeed}</td>
-                  <td>{vehicle.spent}</td>
+                  <td>{formatPrice(vehicle.spent)}</td>
                   <td>{vehicle.responsable}</td>
                   <td>{vehicle.location}</td>
                   <td>{vehicle.numberLocation}</td>

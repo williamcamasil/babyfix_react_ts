@@ -103,6 +103,9 @@ const Register = () => {
             <input
               type="number"
               placeholder="452,75"
+              step="any"
+              min="1"
+              max="10000000"
               {...register('spent', { required: true })}
             />
             {errors.spent && <span>Campo obrigatório</span>}
