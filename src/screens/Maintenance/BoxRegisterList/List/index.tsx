@@ -9,73 +9,73 @@ import { formatPrice } from '../../../../util/formatters';
 
 const List = () => {
   const [vehicles, setVehicles] = useState<Maintence[]>([]);
+  const [flag, setFlag] = useState<boolean>();
 
   useEffect(() => {
     setVehicles(vehiclesMock.veiculos);
     console.log('Setting vehicles');
-  }, []);
+  }, [flag]);
 
   const handleDeleteItem = (id: number) => {
-    console.log('VEHICLES_1 ', vehiclesMock.veiculos);
-    vehiclesMock.veiculos.splice(id, 1);
-    console.log('VEHICLES_2 ', vehiclesMock.veiculos);
-    // console.log('VEHICLES', vehicles);
-    // vehicles.splice(id, 1);
-    // console.log('VEHICLES', vehicles);
+    vehicles.splice(id, 1);
+    setFlag(!flag);
     toast(`Item de id ${id} deletado com sucesso`);
   };
 
   return (
     <FormBox>
       <Form>
-        <table>
-          <thead>
-            <tr>
-              <th>Tipo</th>
-              <th>Km Atual</th>
-              <th>Manutenção Solicitada</th>
-              <th>Data e Hora</th>
-              <th>Manutenção Realizada</th>
-              <th>Kms Próxima Manutenção</th>
-              <th>Valor R$</th>
-              <th>Responsável</th>
-              <th>Localização</th>
-              <th>N° local</th>
-              <th>Observação</th>
-              <th>Exluir?</th>
-            </tr>
-          </thead>
+        {vehicles.length !== 0 ? (
+          <table>
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Km Atual</th>
+                <th>Manutenção Solicitada</th>
+                <th>Data e Hora</th>
+                <th>Manutenção Realizada</th>
+                <th>Kms Próxima Manutenção</th>
+                <th>Valor R$</th>
+                <th>Responsável</th>
+                <th>Localização</th>
+                <th>N° local</th>
+                <th>Observação</th>
+                <th>Exluir?</th>
+              </tr>
+            </thead>
 
-          {vehicles?.map(vehicle => {
-            console.log('Creating Table');
-            return (
-              <tbody key={vehicle.id}>
-                <tr className="botyTable">
-                  <td>{vehicle.typeVehicle}</td>
-                  <td>{vehicle.actualKm}</td>
-                  <td>{vehicle.maintanceRequest}</td>
-                  <td>{vehicle.date}</td>
-                  <td>{vehicle.maintanceDone}</td>
-                  <td>{vehicle.nextKmNeed}</td>
-                  <td>{formatPrice(vehicle.spent)}</td>
-                  <td>{vehicle.responsable}</td>
-                  <td>{vehicle.location}</td>
-                  <td>{vehicle.numberLocation}</td>
-                  <td>{vehicle.note}</td>
+            {vehicles?.map((vehicle, index) => {
+              return (
+                <tbody key={vehicle.id}>
+                  <tr className="botyTable">
+                    <td>{vehicle.typeVehicle}</td>
+                    <td>{vehicle.actualKm}</td>
+                    <td>{vehicle.maintanceRequest}</td>
+                    <td>{vehicle.date}</td>
+                    <td>{vehicle.maintanceDone}</td>
+                    <td>{vehicle.nextKmNeed}</td>
+                    <td>{formatPrice(vehicle.spent)}</td>
+                    <td>{vehicle.responsable}</td>
+                    <td>{vehicle.location}</td>
+                    <td>{vehicle.numberLocation}</td>
+                    <td>{vehicle.note}</td>
 
-                  <td>
-                    <Button
-                      text={'Excluir'}
-                      click={() => {
-                        handleDeleteItem(vehicle.id);
-                      }}
-                    />{' '}
-                  </td>
-                </tr>
-              </tbody>
-            );
-          })}
-        </table>
+                    <td>
+                      <Button
+                        text={'Excluir'}
+                        click={() => {
+                          handleDeleteItem(index);
+                        }}
+                      />{' '}
+                    </td>
+                  </tr>
+                </tbody>
+              );
+            })}
+          </table>
+        ) : (
+          <p>Não tem itens na lista</p>
+        )}
       </Form>
 
       <Buttons>

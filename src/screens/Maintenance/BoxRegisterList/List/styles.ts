@@ -36,6 +36,13 @@ const Form = styled.div`
   table td {
     padding: 7px 0;
   }
+
+  p {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Buttons = styled.div`
