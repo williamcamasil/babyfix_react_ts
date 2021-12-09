@@ -17,9 +17,12 @@ const List = () => {
   }, [flag]);
 
   const handleDeleteItem = (id: number) => {
-    vehicles.splice(id, 1);
-    setFlag(!flag);
-    toast(`Item de id ${id} deletado com sucesso`);
+    const confirmation = confirm('Você tem certeza que deseja deletar o item?');
+    if (confirmation == true) {
+      vehicles.splice(id, 1);
+      setFlag(!flag);
+      toast(`Item de id ${id} deletado com sucesso`);
+    }
   };
 
   return (
@@ -79,13 +82,6 @@ const List = () => {
       </Form>
 
       <Buttons>
-        {/* <Button
-          text={'Excluir'}
-          click={() => {
-            // handleDeleteItem();
-            console.log('Excluido');
-          }}
-        /> */}
         <LinkButton to="/manutencao/registrar" text="Registrar" />
       </Buttons>
     </FormBox>

@@ -194,16 +194,15 @@ const Register = () => {
 
         <Buttons>
           <Button
-            text={'Limpar'}
-            click={() => {
-              console.log('Buscando endereco');
-              // requestCep();
-            }}
-          />
-          <Button
             text={'Salvar'}
             click={() => {
               handleSubmit(onSubmit);
+            }}
+          />
+          <Button
+            text={'Limpar'}
+            click={() => {
+              console.log('Buscando endereco');
             }}
           />
           <LinkButton to="/manutencao/lista" text="Lista" />

@@ -9,7 +9,7 @@ const RegisterListMaintenance = () => {
       <Header />
       <Container>
         <Maintence>
-          <h1>Manutenção para o veículo [NOME]</h1>
+          <h1>Informações sobre a manutenção do seu veículo</h1>
           <BoxRegisterList />
         </Maintence>
       </Container>
