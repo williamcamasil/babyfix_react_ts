@@ -47,15 +47,23 @@ const Register = () => {
     toast('Item salvo com sucesso!');
   };
 
+  const handleClearInputForm = () => {
+    const elements = document.getElementsByTagName('input');
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].value = '';
+    }
+  };
+
   const requestCep = (cep: string) => {
     axios
       .get(`https://viacep.com.br/ws/${cep}/json/`)
       .then(res => {
-        console.log(res.data);
         setAddress(res.data);
       })
       .catch(err => {
         console.log('error: ', err);
+        setAddress(undefined);
+        toast('CEP Inválido.');
       });
   };
 
@@ -151,7 +159,8 @@ const Register = () => {
               <label>Localização</label>
               <input
                 type="text"
-                placeholder="Insira seu cep"
+                maxLength={8}
+                placeholder="Insira seu cep: 05569150"
                 {...register('location', { required: true })}
                 onBlur={e => requestCep(e.target.value)}
               />
@@ -170,7 +179,7 @@ const Register = () => {
           </InputAddress>
 
           <AddressBox>
-            {address && (
+            {address ? (
               <div>
                 <p>
                   {address?.localidade} - {address?.uf}
@@ -178,13 +187,16 @@ const Register = () => {
                 <p>{address?.logradouro}</p>
                 <p>{address?.bairro}</p>
               </div>
+            ) : (
+              <p>-</p>
             )}
           </AddressBox>
 
           <InputStyle>
             <label>Observação</label>
-            <input
-              type="text"
+            <textarea
+              rows={4}
+              cols={50}
               placeholder="Descreva a observação"
               {...register('note', { required: true })}
             />
@@ -202,7 +214,7 @@ const Register = () => {
           <Button
             text={'Limpar'}
             click={() => {
-              console.log('Buscando endereco');
+              handleClearInputForm();
             }}
           />
           <LinkButton to="/manutencao/lista" text="Lista" />

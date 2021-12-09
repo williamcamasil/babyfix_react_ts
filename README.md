@@ -55,3 +55,9 @@ yarn add react-toastify
 yarn add axios
 ```
 
+[React Icons](https://react-icons.github.io/react-icons/icons?name=ai)
+
+```
+yarn add react-icons
+```
+

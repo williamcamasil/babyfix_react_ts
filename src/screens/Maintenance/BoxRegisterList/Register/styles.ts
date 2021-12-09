@@ -30,7 +30,8 @@ const InputStyle = styled.div`
     font-size: 15px;
   }
 
-  input {
+  input,
+  textarea {
     border-radius: 5px;
     border: none;
     padding: 6px;

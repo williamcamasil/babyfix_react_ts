@@ -6,6 +6,11 @@ const FormBox = styled.div`
   justify-content: center;
   flex-direction: column;
   padding: 40px 0;
+
+  .delete-item :hover {
+    color: red;
+    transition: 0.3s;
+  }
 `;
 
 const Form = styled.div`

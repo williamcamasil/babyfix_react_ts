@@ -2,10 +2,10 @@ import { FormBox, Form, Buttons } from './styles';
 import { Maintence } from '../../../../types/maintence';
 import vehiclesMock from '../../../../Mock/vehicles.json';
 import { useEffect, useState } from 'react';
-import Button from '../../../../components/Button';
 import LinkButton from '../../../../components/LinkButton';
 import { toast } from 'react-toastify';
 import { formatPrice } from '../../../../util/formatters';
+import { AiFillDelete } from 'react-icons/ai';
 
 const List = () => {
   const [vehicles, setVehicles] = useState<Maintence[]>([]);
@@ -17,11 +17,13 @@ const List = () => {
   }, [flag]);
 
   const handleDeleteItem = (id: number) => {
-    const confirmation = confirm('Você tem certeza que deseja deletar o item?');
+    const confirmation = confirm(
+      'Você tem certeza que deseja deletar essa manutenção?',
+    );
     if (confirmation == true) {
       vehicles.splice(id, 1);
       setFlag(!flag);
-      toast(`Item de id ${id} deletado com sucesso`);
+      toast(`Manutenção deletada com sucesso`);
     }
   };
 
@@ -64,12 +66,10 @@ const List = () => {
                     <td>{vehicle.note}</td>
 
                     <td>
-                      <Button
-                        text={'Excluir'}
-                        click={() => {
-                          handleDeleteItem(index);
-                        }}
-                      />{' '}
+                      <AiFillDelete
+                        className="delete-item"
+                        onClick={() => handleDeleteItem(index)}
+                      />
                     </td>
                   </tr>
                 </tbody>
@@ -77,7 +77,7 @@ const List = () => {
             })}
           </table>
         ) : (
-          <p>Não tem itens na lista</p>
+          <p>Não existem manutenções cadastradas na lista</p>
         )}
       </Form>
 
