@@ -15,6 +15,7 @@
     "@typescript-eslint/parser": "^5.5.0",
     "axios": "^0.24.0",
     "eslint-plugin-react": "^7.27.1",
+    "msw": "^0.36.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.20.5",
@@ -29,7 +30,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false --testPathIgnorePatterns='fixtures.ts'",
+    "test:watch": "react-scripts test --testPathIgnorePatterns='fixtures.ts'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

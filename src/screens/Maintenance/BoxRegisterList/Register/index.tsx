@@ -158,6 +158,7 @@ const Register = () => {
             <InputStyle>
               <label>Localização</label>
               <input
+                data-testid="location-input"
                 type="text"
                 maxLength={8}
                 placeholder="Insira seu cep: 05569150"
@@ -170,6 +171,7 @@ const Register = () => {
             <InputStyle>
               <label>N° local</label>
               <input
+                data-testid="number-localization-input"
                 type="text"
                 placeholder="N° local"
                 {...register('numberLocation', { required: true })}

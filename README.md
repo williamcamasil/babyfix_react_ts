@@ -61,3 +61,18 @@ yarn add axios
 yarn add react-icons
 ```
 
+
+
+##### [Testes no React](https://testing-library.com/docs/)
+
+```
+Package.json -> scripts: (para usar fixtures sem precisar inserir um teste dentro da pasta)
+"test": "react-scripts test --watchAll=false",
+"test:watch": "react-scripts test",
+
+-------------------------------------
+#Mock Service Worker: MSW serve para mockar backend nos testes
+yarn add msw
+https://mswjs.io/docs/getting-started/mocks/rest-api
+```
+
