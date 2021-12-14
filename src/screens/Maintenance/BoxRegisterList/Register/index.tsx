@@ -44,7 +44,7 @@ const Register = () => {
     };
 
     vehiclesMock.veiculos.push(newItem);
-    toast('Item salvo com sucesso!');
+    toast('Manutenção cadastrada com sucesso!');
   };
 
   const handleClearInputForm = () => {
@@ -74,6 +74,7 @@ const Register = () => {
           <InputStyle>
             <label>Tipo de Veículo</label>
             <input
+              data-testid="type-vehicle-input"
               type="text"
               placeholder="Carro"
               {...register('typeVehicle', { required: true })}
@@ -134,6 +135,7 @@ const Register = () => {
           <InputStyle>
             <label>Valor Gasto R$</label>
             <input
+              data-testid="spent-input"
               type="number"
               placeholder="452,75"
               step="any"

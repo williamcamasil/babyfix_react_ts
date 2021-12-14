@@ -76,3 +76,12 @@ yarn add msw
 https://mswjs.io/docs/getting-started/mocks/rest-api
 ```
 
+
+
+##### Mais informações sobre testes
+
+- https://github.com/sapegin/jest-cheat-sheet
+- https://github.com/testing-library/jest-dom
+
+
+
