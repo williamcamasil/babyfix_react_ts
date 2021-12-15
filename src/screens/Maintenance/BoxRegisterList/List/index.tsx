@@ -67,6 +67,7 @@ const List = () => {
 
                     <td>
                       <AiFillDelete
+                        data-testid="click-delete-maintence"
                         className="delete-item"
                         onClick={() => handleDeleteItem(index)}
                       />

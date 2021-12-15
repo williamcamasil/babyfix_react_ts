@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 import Register from '..';
 import { server } from './fixtures';
-import { ToastContainer } from 'react-toastify';
 import vehiclesMock from '../../../../../Mock/vehicles.json';
 
 describe('Input values', () => {
@@ -27,7 +26,6 @@ describe('Input values', () => {
     render(
       <BrowserRouter>
         <Register />
-        <ToastContainer />
       </BrowserRouter>,
     );
 
