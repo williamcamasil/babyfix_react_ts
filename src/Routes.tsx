@@ -1,8 +1,7 @@
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 import Home from './screens/Home';
-import RegisterListVehicles from './screens/RegisterListVehicles';
-import RegisterListMaintenance from './screens/RegisterListMaintenance';
+import RegisterListMaintenance from './screens/Maintenance';
 
 const Routes = () => {
   return (
@@ -12,11 +11,11 @@ const Routes = () => {
           <Home />
         </Route>
 
-        <Route path="/veiculos" exact>
-          <RegisterListVehicles />
+        <Route path="/manutencao/registrar" exact>
+          <RegisterListMaintenance />
         </Route>
 
-        <Route path="/manutencao" exact>
+        <Route path="/manutencao/lista" exact>
           <RegisterListMaintenance />
         </Route>
       </Switch>
